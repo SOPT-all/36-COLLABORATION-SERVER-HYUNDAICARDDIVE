@@ -10,8 +10,8 @@ import java.util.Optional;
 @Repository
 public interface SpaceRepository extends JpaRepository<SpaceEntity, Long> {
     @EntityGraph(attributePaths = "articleList")
-    Optional<SpaceEntity> findWithArticlesById(Long id);
+    Optional<SpaceEntity> findFirstWithArticlesByOrderByIdAsc();
 
     @EntityGraph(attributePaths = "reviewList")
-    Optional<SpaceEntity> findWithReviewsById(Long id);
+    Optional<SpaceEntity> findFirstWithReviewsByOrderByIdAsc();
 }
