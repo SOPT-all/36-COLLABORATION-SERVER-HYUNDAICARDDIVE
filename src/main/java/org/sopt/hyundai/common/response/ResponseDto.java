@@ -14,6 +14,10 @@ public record ResponseDto<T>(
         return new ResponseDto<>(code.getCode(), data, null);
     }
 
+    public static <T> ResponseDto<T> success(SuccessCode code, final T data, final String message) {
+        return new ResponseDto<>(code.getCode(), data, message);
+    }
+
     public static <T> ResponseDto<T> fail(ErrorCode code) {
         return new ResponseDto<>(code.getCode(), null, code.getMessage());
     }
