@@ -24,7 +24,7 @@ public class SpaceController {
         SpaceCultureResponse response = spaceService.getSpaceCulture();
         return ResponseEntity
                 .status(SuccessCode.OK.getHttpStatus())
-                .body(ResponseDto.success(SuccessCode.OK, response));
+                .body(ResponseDto.success(SuccessCode.OK, response, SuccessCode.GET_SPACE_CULTURE.getMessage()));
     }
 
     @GetMapping("/details")
@@ -32,6 +32,6 @@ public class SpaceController {
         SpaceDetailResponse response = spaceService.getSpaceDetail();
         return ResponseEntity
                 .status(SuccessCode.OK.getHttpStatus())
-                .body(ResponseDto.success(SuccessCode.OK, response));
+                .body(ResponseDto.success(SuccessCode.OK, response, SuccessCode.GET_SPACE_DETAIL.getMessage()));
     }
 }
