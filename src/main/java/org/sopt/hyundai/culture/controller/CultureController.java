@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.sopt.hyundai.common.code.SuccessCode;
 import org.sopt.hyundai.common.response.ResponseDto;
 import org.sopt.hyundai.culture.dto.CultureListResponse;
-import org.sopt.hyundai.culture.dto.CultureResponse;
 import org.sopt.hyundai.culture.service.CultureService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,20 +1,21 @@
 package org.sopt.hyundai.culture.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.sopt.hyundai.culture.domain.enums.Stage;
-
-import java.time.LocalDate;
 
 @Entity
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class CultureEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private LocalDate date;
+    private String date;
 
     @Column
     private String title;

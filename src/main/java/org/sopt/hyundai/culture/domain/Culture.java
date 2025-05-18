@@ -4,13 +4,11 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.sopt.hyundai.culture.domain.enums.Stage;
 
-import java.time.LocalDate;
-
 @Getter
 @RequiredArgsConstructor
 public class Culture {
     private final Long id;
-    private final LocalDate date;
+    private final String  date;
     private final String title;
     private final String description;
     private final Stage stage;

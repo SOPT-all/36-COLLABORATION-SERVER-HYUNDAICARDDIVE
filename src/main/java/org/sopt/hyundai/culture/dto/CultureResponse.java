@@ -1,6 +1,5 @@
 package org.sopt.hyundai.culture.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.sopt.hyundai.culture.domain.Culture;
 
 public record CultureResponse(
