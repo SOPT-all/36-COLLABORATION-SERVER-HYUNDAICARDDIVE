@@ -15,7 +15,6 @@ public class CultureService {
 
     private final CultureFinder cultureFinder;
 
-    @Transactional
     public CultureListResponse getCulture(){
 
         List<CultureResponse> cultureResponseList = cultureFinder.findCultureList()
