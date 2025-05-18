@@ -5,7 +5,6 @@ import org.sopt.hyundai.culture.domain.Culture;
 import org.sopt.hyundai.culture.dto.CultureListResponse;
 import org.sopt.hyundai.culture.dto.CultureResponse;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
