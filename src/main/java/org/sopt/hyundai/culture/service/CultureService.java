@@ -17,8 +17,7 @@ public class CultureService {
     public CultureListResponse getCulture(){
 
         List<CultureResponse> cultureResponseList = cultureFinder.findCultureList()
-                .stream().map(Culture::fromEntity) // Entity → Domain
-                .map(CultureResponse::from).toList(); // Domain → DTO
+                .stream().map(CultureResponse::from).toList(); // Domain → DTO
 
         return CultureListResponse.of(cultureResponseList);
     }
