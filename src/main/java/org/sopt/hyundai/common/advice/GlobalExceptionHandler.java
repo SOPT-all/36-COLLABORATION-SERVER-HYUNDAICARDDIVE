@@ -13,6 +13,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -62,5 +63,13 @@ public class GlobalExceptionHandler {
         return ResponseEntity
                 .status(ErrorCode.INTERNAL_SERVER_ERROR.getHttpStatus())
                 .body(ResponseDto.fail(ErrorCode.INTERNAL_SERVER_ERROR));
+    }
+
+    // 리소스를 찾을 수 없을 때에 대한 예외
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<ResponseDto<Void>> handleResourceNotFound(NoSuchElementException e) {
+        return ResponseEntity
+                .status(ErrorCode.NOT_FOUND_RESOURCE.getHttpStatus())
+                .body(ResponseDto.fail(ErrorCode.NOT_FOUND_RESOURCE));
     }
 }

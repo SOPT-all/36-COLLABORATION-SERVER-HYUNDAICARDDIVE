@@ -1,10 +1,8 @@
 package org.sopt.hyundai.common.response;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.sopt.hyundai.common.code.ErrorCode;
 import org.sopt.hyundai.common.code.SuccessCode;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public record ResponseDto<T>(
         int code,
         T data,
@@ -12,6 +10,10 @@ public record ResponseDto<T>(
 ) {
     public static <T> ResponseDto<T> success(SuccessCode code, final T data) {
         return new ResponseDto<>(code.getCode(), data, null);
+    }
+
+    public static <T> ResponseDto<T> success(SuccessCode code, final T data, final String message) {
+        return new ResponseDto<>(code.getCode(), data, message);
     }
 
     public static <T> ResponseDto<T> fail(ErrorCode code) {
