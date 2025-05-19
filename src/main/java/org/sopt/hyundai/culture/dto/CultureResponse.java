@@ -3,7 +3,6 @@ package org.sopt.hyundai.culture.dto;
 import org.sopt.hyundai.culture.domain.Culture;
 
 public record CultureResponse(
-        Long id,
         String date,
         String title,
         String description,
@@ -14,7 +13,6 @@ public record CultureResponse(
 ) {
     public static CultureResponse from(Culture culture) {
         return new CultureResponse(
-                culture.getId(),
                 culture.getDate(),
                 culture.getTitle(),
                 culture.getDescription(),
