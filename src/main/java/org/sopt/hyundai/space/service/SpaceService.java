@@ -15,6 +15,6 @@ public class SpaceService {
     }
 
     public SpaceDetailResponse getSpaceDetail() {
-        return SpaceDetailResponse.from(spaceFinder.findFirstWithArticles());
+        return SpaceDetailResponse.from(spaceFinder.findFirstWithReviews());
     }
 }

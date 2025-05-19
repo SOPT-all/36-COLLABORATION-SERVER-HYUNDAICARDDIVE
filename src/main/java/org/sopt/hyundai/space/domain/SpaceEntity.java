@@ -26,6 +26,7 @@ public class SpaceEntity {
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
+    @OrderBy("articleId ASC")
     private List<ArticleEntity> articleList = new ArrayList<>();
 
     @OneToMany(
@@ -33,6 +34,7 @@ public class SpaceEntity {
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
+    @OrderBy("reviewId ASC")
     private List<ReviewEntity> reviewList = new ArrayList<>();
 
     public Long getId() {
