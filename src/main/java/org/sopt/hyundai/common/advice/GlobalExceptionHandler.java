@@ -2,6 +2,8 @@ package org.sopt.hyundai.common.advice;
 
 import org.sopt.hyundai.common.code.ErrorCode;
 import org.sopt.hyundai.common.response.ResponseDto;
+import org.sopt.hyundai.exception.InvalidCategoryException;
+import org.sopt.hyundai.exception.InvalidSortOptionException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -15,6 +17,20 @@ import java.util.NoSuchElementException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(InvalidSortOptionException.class)
+    public ResponseEntity<ResponseDto<Void>> handleInvalidSortOptionException(Exception e) {
+        return ResponseEntity
+                .status(ErrorCode.INVALID_SORT_OPTION.getHttpStatus())
+                .body(ResponseDto.fail(ErrorCode.INVALID_SORT_OPTION));
+    }
+
+    @ExceptionHandler(InvalidCategoryException.class)
+    public ResponseEntity<ResponseDto<Void>> handleInvalidCategoryException(Exception e) {
+        return ResponseEntity
+                .status(ErrorCode.INVALID_CATEGORY.getHttpStatus())
+                .body(ResponseDto.fail(ErrorCode.INVALID_CATEGORY));
+    }
 
     // @Valid 예외
     @ExceptionHandler(MethodArgumentNotValidException.class)
