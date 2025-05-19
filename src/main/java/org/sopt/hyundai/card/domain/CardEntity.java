@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Card {
+public class CardEntity {
 
 
     @Id
@@ -36,7 +36,7 @@ public class Card {
     private LocalDateTime createdAt;
 
     @Builder
-    public Card(String title, String category, String hashTag, String imageUrl, Long likes, LocalDateTime createdAt) {
+    public CardEntity(String title, String category, String hashTag, String imageUrl, Long likes, LocalDateTime createdAt) {
         this.title = title;
         this.category = category;
         this.hashTag = hashTag;

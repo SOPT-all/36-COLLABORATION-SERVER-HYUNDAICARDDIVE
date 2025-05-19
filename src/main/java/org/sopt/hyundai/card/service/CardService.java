@@ -2,7 +2,7 @@ package org.sopt.hyundai.card.service;
 
 import lombok.RequiredArgsConstructor;
 import org.sopt.hyundai.card.controller.dto.CardRes;
-import org.sopt.hyundai.card.domain.Card;
+import org.sopt.hyundai.card.domain.CardEntity;
 import org.sopt.hyundai.common.code.ErrorCode;
 import org.sopt.hyundai.exception.InvalidCategoryException;
 import org.sopt.hyundai.exception.InvalidSortOptionException;
@@ -24,7 +24,7 @@ public class CardService {
             throw new InvalidCategoryException(ErrorCode.INVALID_CATEGORY);
         }
 
-        List<Card> cards = switch (cardSort) {
+        List<CardEntity> cards = switch (cardSort) {
             case "recommended" -> getRecommendedCards(cardCategory);
             case "latest" -> getLatestCards(cardCategory);
             default -> throw new InvalidSortOptionException(ErrorCode.INVALID_SORT_OPTION);
@@ -43,13 +43,13 @@ public class CardService {
         return new CardRes(cardDtoList);
     }
 
-    private List<Card> getRecommendedCards(String category) {
+    private List<CardEntity> getRecommendedCards(String category) {
         return category.equals("total")
                 ? cardRetriever.findAllByOrderByLikesDesc()
                 : cardRetriever.findByCategoryOrderByLikesDesc(category);
     }
 
-    private List<Card> getLatestCards(String category) {
+    private List<CardEntity> getLatestCards(String category) {
         return category.equals("total")
                 ? cardRetriever.findAllByOrderByCreatedAtDesc()
                 : cardRetriever.findByCategoryOrderByCreatedAtDesc(category);
