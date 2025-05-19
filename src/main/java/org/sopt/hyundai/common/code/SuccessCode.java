@@ -4,8 +4,6 @@ import org.springframework.http.HttpStatus;
 
 public enum SuccessCode implements ApiCode {
     OK(HttpStatus.OK, 200,"요청이 성공했습니다."),
-    GET_SPACE_CULTURE(HttpStatus.OK, 200,"Space&Culture 상세조회에 성공했습니다."),
-    GET_SPACE_DETAIL(HttpStatus.OK, 200,"공간소개 상세조회에 성공했습니다."),
     CREATED(HttpStatus.CREATED, 201, "요청이 성공했습니다."),
     NO_CONTENT(HttpStatus.NO_CONTENT,204,"요청이 성공했습니다.")
     ;

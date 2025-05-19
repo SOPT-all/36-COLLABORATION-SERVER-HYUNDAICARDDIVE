@@ -1,10 +1,8 @@
 package org.sopt.hyundai.common.response;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.sopt.hyundai.common.code.ErrorCode;
 import org.sopt.hyundai.common.code.SuccessCode;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public record ResponseDto<T>(
         int code,
         T data,
