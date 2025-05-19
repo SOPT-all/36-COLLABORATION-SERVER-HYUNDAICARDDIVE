@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode implements ApiCode{
     // 400
     INVALID_INPUT_VALUE(HttpStatus.BAD_REQUEST, 400, "잘못된 요청 값입니다."),
+    INVALID_SORT_OPTION(HttpStatus.BAD_REQUEST, 400, "지원하지 않는 정렬 형식입니다."),
+    INVALID_CATEGORY(HttpStatus.BAD_REQUEST, 400, "지원하지 않는 카테고리 형식 입니다."),
     NOT_FOUND_END_POINT(HttpStatus.NOT_FOUND, 404, "요청한 API 엔드포인트가 존재하지 않습니다."),
     METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED, 405, "지원하지 않는 HTTP 메서드입니다."),
 
